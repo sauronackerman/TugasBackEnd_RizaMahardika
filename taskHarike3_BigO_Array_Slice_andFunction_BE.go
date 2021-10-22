@@ -43,7 +43,7 @@ import (
 //}
 //penyederhanaan fungsi
 func primeNumber(input int) bool {
-	if input <= 2 {
+	if input < 2 {
 		return false
 	} else {
 
