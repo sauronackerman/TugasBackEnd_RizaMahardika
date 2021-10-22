@@ -89,7 +89,7 @@ var result uint64 = 1
 	if pangkat == 0 {
 		return 0
 	} else if pangkat == 1 {
-		return 1
+		return base
 	} else {
 		for pangkat > 0 {
 			if pangkat%2==1{
