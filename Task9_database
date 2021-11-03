@@ -1,3 +1,29 @@
-Problem 1:
-Problem 2:
-Problem 3:
+ERD : https://drive.google.com/file/d/1x3YJfo_8eNj4aYbJ2lFh5heAssvBpELu/view?usp=sharing
+SQL : 
+create database alta_onlineshop;
+
+use alta_onlineshop;
+
+create table user(id_user varchar(50) primary key, nama varchar(50), alamat text, 
+  tanggal_lahir date, status varchar(50), created_at date, updated_at date);
+
+create table products(product varchar(50) not null primary key,product_type varchar(50),
+  product_description varchar(50),operator varchar(50),payment_methods varchar(50));
+
+create table transactions(id_transaction int not null auto_increment primary key,transaction_detail varchar(50) not null);
+
+create table detail_transactions(id_detail_transaction varchar(50) primary key, id_transaction varchar(50), id_product varchar(50), 
+  constrain fk_detail_transactions_transactions foreign key (id_transaction) references transactions (id_transaction),
+  constrain fk_detail_transactions_products foreign key (id_product) references products (id_product)
+);
+
+
+create table kurir(id int not null auto_increment primary key, name varchar(50), created_at date, updated_at date);
+
+
+alter table kurir add ongkos_dasar int(24);
+
+alter table kurir rename to shipping;
+
+drop table shipping;
+
