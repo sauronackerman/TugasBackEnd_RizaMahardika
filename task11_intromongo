@@ -1,0 +1,227 @@
+
+    Create
+        Insert 5 operators pada table operators.
+        
+        db.operators.insertMany( [
+      { _id: 1, name: "Indosat" },
+      { _id: 2, name: "Axis" },
+      { _id: 3, name: "XL" },
+      { _id: 4, name: "Esia" },
+      { _id: 5, name: "Telkomsel" }
+   ] );
+        
+        Insert 3 product type.
+        
+       db.product_types.insertMany( [
+      { _id: 1, name: "Pulsa" },
+      { _id: 2, name: "Paket Internet" },
+      { _id: 3, name: "Paket Telpon" }
+   ] );
+
+        Insert 2 product dengan product type id = 1, dan operators id = 3.
+        
+        db.products.insertMany( [
+      { _id: 1, product_type_id: 1, operator_id: 3, name: "Pulsa 5000" },
+      { _id: 2, product_type_id: 1, operator_id: 3, name: "Pulsa 10000" }
+   ] );
+        
+        Insert 3 product dengan product type id = 2, dan operators id = 1.
+        
+        db.products.insertMany( [
+      { _id: 3, product_type_id: 2, operator_id: 1, name: "Unlimited" },
+      { _id: 4, product_type_id: 2, operator_id: 1, name: "Paket Chat" },
+      { _id: 5, product_type_id: 2, operator_id: 1, name: "Paket Pelajar" }
+   ] );
+        
+        Insert 3 product dengan product type id = 3, dan operators id = 4.
+        
+        db.products.insertMany( [
+      { _id: 6, product_type_id: 3, operator_id: 4, name: "Roaming" },
+      { _id: 7, product_type_id: 3, operator_id: 4, name: "Telpon seharian" },
+      { _id: 8, product_type_id: 3, operator_id: 4, name: "Telpon sesama" }
+   ] );
+        
+        Insert product description pada setiap product.
+        
+      db.product_descriptions.insertMany( [
+      { _id: 1, description: "pulsa senilai 5000 dengan harga 6500" },
+      { _id: 2, description: "pulsa senilai 10000 dengan harga 11500" },
+      { _id: 3, description: "internet unlimited sepuasnya" },
+      { _id: 4, description: "unlimited aplikasi chat populer" },
+      { _id: 5, description: "paket khusus untuk pelajar dan mahasiswa" },
+      { _id: 6, description: "telpon murah di luar negeri" },
+      { _id: 7, description: "telpon unlimited 1 hari" },
+      { _id: 8, description: "telpon murah ke sesama operator" }
+   ] ); 
+   
+db.products.updateOne({ _id: 1 }, { $set: { description: "pulsa senilai 5000 dengan harga 6500" } });
+db.products.updateOne({ _id: 2 }, { $set: { description: "pulsa senilai 10000 dengan harga 11500" } });
+db.products.updateOne({ _id: 3 }, { $set: { description: "internet unlimited sepuasnya" } });
+db.products.updateOne({ _id: 4 }, { $set: { description: "unlimited aplikasi chat populer" } });
+db.products.updateOne({ _id: 5 }, { $set: { description: "paket khusus untuk pelajar dan mahasiswa" } });
+db.products.updateOne({ _id: 6 }, { $set: { description: "telpon murah di luar negeri" } });
+db.products.updateOne({ _id: 7 }, { $set: { description: "telpon unlimited 1 hari" } });
+db.products.updateOne({ _id: 8 }, { $set: { description: "telpon murah ke sesama operator" } });
+        
+        Insert 3 payment methods.
+        
+      db.payment_methods.insertMany( [
+      { _id: 1, name: "E-Wallet" },
+      { _id: 2, name: "Bank"},
+      { _id: 3, name: "Paylater" }
+   ] );
+        
+        Insert 5 user pada tabel user.
+        
+        db.users.insertMany( [
+      { _id: 1, name: "Riza", gender: "Male" },
+      { _id: 2, name: "Mahard", gender: "Male" },
+      { _id: 3, name: "Dika", gender: "Male" },
+      { _id: 4, name: "Asuna", gender: "Female" },
+      { _id: 5, name: "Mikasa", gender: "Female" }
+   ] );
+        
+        Insert 3 transaksi di masing-masing user. (soal berlanjut ke soal 1.j)
+        
+        
+db.transactions.insertMany( [
+      { _id: 1, user_id: 1, payment_method_id: 1, total_qty: 2, total_price: 10000 },
+      { _id: 2, user_id: 1, payment_method_id: 2, total_qty: 3, total_price: 16000 },
+      { _id: 3, user_id: 1, payment_method_id: 3, total_qty: 4, total_price: 17000 },
+      { _id: 4, user_id: 2, payment_method_id: 1, total_qty: 1, total_price: 18000 },
+      { _id: 5, user_id: 2, payment_method_id: 2, total_qty: 3, total_price: 11000 },
+      { _id: 6, user_id: 2, payment_method_id: 3, total_qty: 2, total_price: 12000 },
+      { _id: 7, user_id: 3, payment_method_id: 3, total_qty: 5, total_price: 11000 },
+      { _id: 8, user_id: 3, payment_method_id: 2, total_qty: 2, total_price: 13000 },
+      { _id: 9, user_id: 3, payment_method_id: 1, total_qty: 1, total_price: 14000 },
+      { _id: 10, user_id: 4, payment_method_id: 3, total_qty: 2, total_price: 15000 },
+      { _id: 11, user_id: 4, payment_method_id: 2, total_qty: 3, total_price: 16000 },
+      { _id: 12, user_id: 4, payment_method_id: 1, total_qty: 3, total_price: 15000 },
+      { _id: 13, user_id: 5, payment_method_id: 1, total_qty: 4, total_price: 13000 },
+      { _id: 14, user_id: 5, payment_method_id: 2, total_qty: 3, total_price: 16000 },
+      { _id: 15, user_id: 5, payment_method_id: 3, total_qty: 5, total_price: 14000 }
+
+   ] );
+
+        
+        Insert 3 product di masing-masing transaksi.
+        
+     db.transactions.updateOne({ _id: 1 }, { $set: {products: [{"product_id": 1, "qty": 1},
+     { "product_id": 2, "qty": 1 },
+    { "product_id": 3, "qty": 1}
+    ]}});
+    db.transactions.updateOne({ _id: 2 }, { $set: {products: [{"product_id": 1, "qty": 1},
+     { "product_id": 4, "qty": 1 },
+    { "product_id": 5, "qty": 1}
+    ]}});
+    db.transactions.updateOne({ _id: 3 }, { $set: {products: [{"product_id": 1, "qty": 1},
+     { "product_id": 6, "qty": 1 },
+    { "product_id": 7, "qty": 1}
+    ]}});
+    db.transactions.updateOne({ _id: 4 }, { $set: {products: [{"product_id": 1, "qty": 1},
+     { "product_id": 8, "qty": 1 },
+    { "product_id": 2, "qty": 1}
+    ]}});
+    db.transactions.updateOne({ _id: 5 }, { $set: {products: [{"product_id": 1, "qty": 1},
+     { "product_id": 3, "qty": 1 },
+    { "product_id": 4, "qty": 1}
+    ]}});
+    db.transactions.updateOne({ _id: 6 }, { $set: {products: [{"product_id": 1, "qty": 1},
+     { "product_id": 5, "qty": 1 },
+    { "product_id": 7, "qty": 1}
+    ]}});
+    db.transactions.updateOne({ _id: 7 }, { $set: {products: [{"product_id": 1, "qty": 1},
+     { "product_id": 8, "qty": 1 },
+    { "product_id": 2, "qty": 1}
+    ]}});
+    db.transactions.updateOne({ _id: 8 }, { $set: {products: [{"product_id": 1, "qty": 1},
+     { "product_id": 3, "qty": 1 },
+    { "product_id": 4, "qty": 1}
+    ]}});
+    
+    db.transaction_details.insertMany( [
+      { transaction_id: 1, product_id: 1, qty: 1, price: 50000 },
+      { transaction_id: 1, product_id: 2, qty: 1, price: 50000 },
+      { transaction_id: 1, product_id: 3, qty: 1, price: 50000 },
+      { transaction_id: 2, product_id: 1, qty: 1, price: 50000 },
+      { transaction_id: 2, product_id: 2, qty: 1, price: 50000 },
+      { transaction_id: 2, product_id: 3, qty: 1, price: 50000 },
+      { transaction_id: 3, product_id: 1, qty: 1, price: 50000 },
+      { transaction_id: 3, product_id: 2, qty: 1, price: 50000 },
+      { transaction_id: 3, product_id: 3, qty: 1, price: 50000 },
+      { transaction_id: 4, product_id: 1, qty: 1, price: 50000 },
+      { transaction_id: 4, product_id: 2, qty: 1, price: 50000 },
+      { transaction_id: 4, product_id: 3, qty: 1, price: 50000 },
+      { transaction_id: 5, product_id: 1, qty: 1, price: 50000 },
+      { transaction_id: 5, product_id: 2, qty: 1, price: 50000 },
+      { transaction_id: 5, product_id: 3, qty: 1, price: 50000 },
+      { transaction_id: 6, product_id: 1, qty: 1, price: 50000 },
+      { transaction_id: 6, product_id: 2, qty: 1, price: 50000 },
+      { transaction_id: 6, product_id: 3, qty: 1, price: 50000 },
+      { transaction_id: 7, product_id: 1, qty: 1, price: 50000 },
+      { transaction_id: 7, product_id: 2, qty: 1, price: 50000 },
+      { transaction_id: 7, product_id: 3, qty: 1, price: 50000 },
+      { transaction_id: 8, product_id: 1, qty: 1, price: 50000 },
+      { transaction_id: 8, product_id: 2, qty: 1, price: 50000 },
+      { transaction_id: 8, product_id: 3, qty: 1, price: 50000 },
+      { transaction_id: 9, product_id: 1, qty: 1, price: 50000 },
+      { transaction_id: 9, product_id: 2, qty: 1, price: 50000 },
+      { transaction_id: 9, product_id: 3, qty: 1, price: 50000 },
+      { transaction_id: 10, product_id: 1, qty: 1, price: 50000 },
+      { transaction_id: 10, product_id: 2, qty: 1, price: 50000 },
+      { transaction_id: 10, product_id: 3, qty: 1, price: 50000 },
+      { transaction_id: 11, product_id: 1, qty: 1, price: 50000 },
+      { transaction_id: 11, product_id: 2, qty: 1, price: 50000 },
+      { transaction_id: 11, product_id: 3, qty: 1, price: 50000 },
+      { transaction_id: 12, product_id: 1, qty: 1, price: 50000 },
+      { transaction_id: 12, product_id: 2, qty: 1, price: 50000 },
+      { transaction_id: 12, product_id: 3, qty: 1, price: 50000 },
+      { transaction_id: 13, product_id: 1, qty: 1, price: 50000 },
+      { transaction_id: 13, product_id: 2, qty: 1, price: 50000 },
+      { transaction_id: 13, product_id: 3, qty: 1, price: 50000 },
+      { transaction_id: 14, product_id: 1, qty: 1, price: 50000 },
+      { transaction_id: 14, product_id: 2, qty: 1, price: 50000 },
+      { transaction_id: 14, product_id: 3, qty: 1, price: 50000 },
+      { transaction_id: 15, product_id: 1, qty: 1, price: 50000 },
+      { transaction_id: 15, product_id: 2, qty: 1, price: 50000 },
+      { transaction_id: 15, product_id: 3, qty: 1, price: 50000 },
+   ] );
+
+    Read
+        Tampilkan nama user / pelanggan dengan gender Laki-laki / M.
+        
+        db.users.find({gender:"Male"})
+        
+        Tampilkan product dengan id = 3.
+        
+        db.products.find({_id:3})
+        
+        Hitung jumlah user / pelanggan dengan status gender Perempuan.
+        
+        db.users.find({gender: "Female"}).count()
+        
+        Tampilkan data pelanggan dengan urutan sesuai nama abjad.
+        
+        db.users.find().sort({name: 1})
+        
+        Tampilkan 5 data product.
+        
+        db.products.find().limit(5)
+        
+    Update
+        Ubah data product id 1 dengan nama ‘product dummy’.
+        
+        db.products.updateOne({_id: 1},{$set :{name: "product dummy"}})
+        
+        Ubah qty = 3 pada transaction detail dengan product id 1.
+        
+        db.transaction_details.updateOne({product_id: 1},{$set: {qty: 3}})
+        
+    Delete
+        Delete data pada tabel product dengan id 1.
+        
+        db.products.deleteOne({_id: 1})
+        
+        Delete pada pada tabel product dengan product type id 1.
+        
+        db.products.deleteMany({product_type_id: 1})
