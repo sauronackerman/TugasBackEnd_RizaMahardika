@@ -36,7 +36,7 @@ db.books.aggregate( [ { $project: { "title" : 1, "price": 1,
                   then: "2%" },
                 { case: { $lt : [ "$price", 60000 ] },
                   then: "1%" } ],
-                default: "No scores found." } } } } ] );
+                default: "No price found." } } } } ] );
 
 
 8. Tampilkan semua nama buku, harga, nama author dan nama publisher, urutkan dari harga termahal ke termurah.
