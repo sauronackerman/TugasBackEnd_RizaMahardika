@@ -52,10 +52,8 @@ db.books.aggregate([
 9. Tampilkan data nama buku harga dan publisher, kemudian tampilkan hanya data ke 3 dan ke 4.
 db.books.aggregate([
    { $lookup: { from: "publishers", localField: "publisherID", foreignField: "_id", as: "publisher" } },
-   { $unwind: "$publisher"},
    { $project: { title: 1, price: 1, publisher: "$publisher.publisherName" } }]);
 db.books.aggregate([
    { $lookup: { from: "publishers", localField: "publisherID", foreignField: "_id", as: "publisher" } },
-   { $unwind: "$publisher"},
    { $project: { title: 1, price: 1, publisher: "$publisher.publisherName" } },
    { $skip: 2 }, { $limit: 2 } ]);
